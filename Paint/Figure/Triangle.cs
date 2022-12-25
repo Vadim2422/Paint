@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+
 
 namespace Paint.Figure
 {
@@ -12,7 +8,7 @@ namespace Paint.Figure
         public Triangle(DataPaint data, Point end_location) : base(data, end_location)
         {
         }
-        public Triangle() { }   
+        public Triangle() {}   
 
         public override void draw(Graphics g)
         {

@@ -11,9 +11,7 @@ namespace Paint.Figure
 {
     public class Oval : Figure
     {
-        public Oval(DataPaint data, Point end_location) : base(data, end_location)
-        {
-        }
+        public Oval(DataPaint data, Point end_location) : base(data, end_location){}
 
         public Oval() {}
         public override void draw(Graphics g)

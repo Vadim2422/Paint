@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Xml.Serialization;
-using System.Windows.Forms;
 using System.IO;
 
 namespace Paint.Figure
@@ -104,7 +100,7 @@ namespace Paint.Figure
         {
             XmlSerializer xml = new XmlSerializer(typeof(DataFigure));
 
-            using (FileStream fs = new FileStream("C:\\Users\\breev\\source\\repos\\Paint\\Paint\\Figure.xml", FileMode.Create)) 
+            using (FileStream fs = new FileStream("C:\\Users\\Vadim\\Source\\Repos\\Paint\\Paint\\Figure.xml", FileMode.Create)) 
             {
                 xml.Serialize(fs, this);
             }
@@ -112,7 +108,7 @@ namespace Paint.Figure
         public void deSerializeXML()
         {
             figures.Clear();
-            using (FileStream fs = new FileStream("C:\\Users\\breev\\source\\repos\\Paint\\Paint\\Figure.xml", FileMode.Open))
+            using (FileStream fs = new FileStream("C:\\Users\\Vadim\\Source\\Repos\\Paint\\Paint\\Figure.xml", FileMode.Open))
             {
                 XmlSerializer xml = new XmlSerializer(typeof(DataFigure));
                 DataFigure figure_tmp = xml.Deserialize(fs) as DataFigure;

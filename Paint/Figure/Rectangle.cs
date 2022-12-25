@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Paint.Figure
@@ -13,7 +8,7 @@ namespace Paint.Figure
     public class Rectangle : Figure
     {
         public Rectangle(DataPaint data ,Point end_location) : base(data, end_location) {}
-        public Rectangle() { }
+        public Rectangle() {}
         public override void draw(Graphics g)
         {
             int start_x = start_location.X;
