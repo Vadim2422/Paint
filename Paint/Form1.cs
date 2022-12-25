@@ -8,7 +8,6 @@ namespace Paint
     public partial class Form1 : Form
     {
 
-        //DataDrawingFigure dataDrawing = new DataDrawingFigure();
         DataPaint paint = new DataPaint();
         DataFigure dataFigure;
         Bitmap pic;
@@ -29,29 +28,26 @@ namespace Paint
 
         }
 
-       
-
-        private void сохранитьJPGToolStripMenuItem_Click(object sender, EventArgs e)
+       private void сохранитьJPGToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (pictureBox1.Image != null) //если в pictureBox есть изображение
+            if (pictureBox1.Image != null) 
             {
-                //создание диалогового окна "Сохранить как..", для сохранения изображения
                 SaveFileDialog savedialog = new SaveFileDialog();
                 savedialog.Title = "Сохранить картинку как...";
-                //отображать ли предупреждение, если пользователь указывает имя уже существующего файла
                 savedialog.OverwritePrompt = true;
-                //отображать ли предупреждение, если пользователь указывает несуществующий путь
                 savedialog.CheckPathExists = true;
-                //список форматов файла, отображаемый в поле "Тип файла"
                 savedialog.Filter = "Image Files(*.jpg)|*.jpg|Image Files(*.png)|*.PNG";
-                //отображается ли кнопка "Справка" в диалоговом окне
                 savedialog.ShowHelp = true;
-                if (savedialog.ShowDialog() == DialogResult.OK) //если в диалоговом окне нажата кнопка "ОК"
+                if (savedialog.ShowDialog() == DialogResult.OK) 
                 {
                     try
                     {
-                        pictureBox1.Image.Save(savedialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        Bitmap pic_tmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                        Graphics g_tmp = Graphics.FromImage(pic_tmp);
+                        g_tmp.Clear(Color.White);
+                        g_tmp.DrawImage(pic, 0, 0);
+                        pic_tmp.Save(savedialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                     }
                     catch
                     {
@@ -68,14 +64,14 @@ namespace Paint
             openFileDialog1.ShowDialog();
             if (openFileDialog1.FileName.Contains(".jpg"))
             {
-                pic = (Bitmap)System.Drawing.Image.FromFile(openFileDialog1.FileName);
+                pic = (Bitmap)Image.FromFile(openFileDialog1.FileName);
                 g = Graphics.FromImage(pic);
                 pictureBox1.Image = pic;
             }
             else if (openFileDialog1.FileName.Contains(".xml"))
             {
                 g.Clear(Color.Transparent);
-                dataFigure.deSerializeXML();
+                dataFigure.deSerializeXML(openFileDialog1.FileName);
                 dataFigure.draw_all_figure(g);
                 pictureBox1.Image = pic;
             }
@@ -212,7 +208,7 @@ namespace Paint
 
         private void Rectangle_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+            Button button = (Button)sender;
             switch (button.Name)
             {
                 case "Rectangle":
@@ -251,7 +247,26 @@ namespace Paint
 
         private void сохранитьXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataFigure.SerializeXML();
+            if (pictureBox1.Image != null)
+            {
+                SaveFileDialog savedialog = new SaveFileDialog();
+                savedialog.Title = "Сохранить картинку как...";
+                savedialog.Filter = "XML Files(*.xml)|*.xml";
+                savedialog.ShowHelp = true;
+                if (savedialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        dataFigure.SerializeXML(savedialog.FileName);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Невозможно сохранить изображение", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            
         }
 
         private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)

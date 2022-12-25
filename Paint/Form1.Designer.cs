@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Clear = new System.Windows.Forms.Button();
             this.Fill = new System.Windows.Forms.CheckBox();
@@ -203,28 +204,28 @@
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // сохранитьXMLToolStripMenuItem
             // 
             this.сохранитьXMLToolStripMenuItem.Name = "сохранитьXMLToolStripMenuItem";
-            this.сохранитьXMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьXMLToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.сохранитьXMLToolStripMenuItem.Text = "Сохранить XML";
             this.сохранитьXMLToolStripMenuItem.Click += new System.EventHandler(this.сохранитьXMLToolStripMenuItem_Click);
             // 
             // сохранитьJPGToolStripMenuItem
             // 
             this.сохранитьJPGToolStripMenuItem.Name = "сохранитьJPGToolStripMenuItem";
-            this.сохранитьJPGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьJPGToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.сохранитьJPGToolStripMenuItem.Text = "Сохранить JPG";
             this.сохранитьJPGToolStripMenuItem.Click += new System.EventHandler(this.сохранитьJPGToolStripMenuItem_Click);
             // 
             // выйтиToolStripMenuItem
             // 
             this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
-            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.выйтиToolStripMenuItem.Text = "Выйти";
             this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
             // 
@@ -266,6 +267,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Paint";

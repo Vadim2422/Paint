@@ -96,19 +96,19 @@ namespace Paint.Figure
             }
         }
 
-        public void SerializeXML()
+        public void SerializeXML(string fileName)
         {
             XmlSerializer xml = new XmlSerializer(typeof(DataFigure));
 
-            using (FileStream fs = new FileStream("C:\\Users\\Vadim\\Source\\Repos\\Paint\\Paint\\Figure.xml", FileMode.Create)) 
+            using (FileStream fs = new FileStream(fileName, FileMode.Create)) 
             {
                 xml.Serialize(fs, this);
             }
         }
-        public void deSerializeXML()
+        public void deSerializeXML(string fileName)
         {
             figures.Clear();
-            using (FileStream fs = new FileStream("C:\\Users\\Vadim\\Source\\Repos\\Paint\\Paint\\Figure.xml", FileMode.Open))
+            using (FileStream fs = new FileStream(fileName, FileMode.Open))
             {
                 XmlSerializer xml = new XmlSerializer(typeof(DataFigure));
                 DataFigure figure_tmp = xml.Deserialize(fs) as DataFigure;
