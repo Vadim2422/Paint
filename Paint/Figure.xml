@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<DataFigure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <figures>
+    <Figure xsi:type="Oval">
+      <figure>
+        <color>-8323328</color>
+        <width>11</width>
+        <filling>true</filling>
+        <figure>Oval</figure>
+      </figure>
+      <start_location>
+        <X>17</X>
+        <Y>153</Y>
+      </start_location>
+      <end_location>
+        <X>860</X>
+        <Y>467</Y>
+      </end_location>
+    </Figure>
+    <Figure xsi:type="Rectangle">
+      <figure>
+        <color>-16777216</color>
+        <width>1</width>
+        <filling>false</filling>
+        <figure>Rectangle</figure>
+      </figure>
+      <start_location>
+        <X>274</X>
+        <Y>43</Y>
+      </start_location>
+      <end_location>
+        <X>1227</X>
+        <Y>545</Y>
+      </end_location>
+    </Figure>
+  </figures>
+</DataFigure>
